@@ -4,27 +4,52 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { LayoutGrid, Rows, MapPin, Calendar, Clock } from 'lucide-react';
 
-const presentations = [
+interface PresentationItem {
+  city: string;
+  place: string;
+  venue: string;
+  date: string;
+  image: string;
+  isUpcoming?: boolean;
+  isCancelled?: boolean;
+  time?: string;
+}
+
+const presentations: PresentationItem[] = [
   {
-    city: 'Cali, Colombia',
-    place: 'W4FF · Koleto B2B Karther',
-    venue: 'La Frecuencia Violeta (Booth)',
-    date: 'August 16, 2025',
-    image: '/multimedia-karther/gigs/karther-dj-august-16-2025.webp',
+    city: 'Medellín, Colombia',
+    place: 'Frequency · Raw Energy',
+    venue: 'Xero Club',
+    date: 'November 06',
+    image: '/galeneo/dates/frequency-raw-energy-noviembre-06.webp',
   },
   {
-    city: 'Cali, Colombia',
-    place: 'Woshh! · Rafa Barrios x Classmatic',
-    venue: 'La Frecuencia Violeta (Booth)',
-    date: 'June 29, 2024',
-    image: '/multimedia-karther/gigs/karther-dj-june-29.webp',
+    city: 'Medellín, Colombia',
+    place: 'Groovers',
+    venue: 'Mijitō Rooftop & Coffee',
+    date: 'October 16',
+    image: '/galeneo/dates/groovers-mijito-rooftop&coffee-16-octubre.webp',
   },
   {
-    city: 'Cali, Colombia',
-    place: 'Gordo · Booth Rec Showcase',
-    venue: 'Centro de Eventos Valle del Pacífico',
-    date: 'October 15, 2023',
-    image: '/multimedia-karther/gigs/karther-dj-october-15-2023.webp',
+    city: 'Oriente, Antioquia',
+    place: 'Village Festival',
+    venue: 'Synergy Stage',
+    date: 'September 30',
+    image: '/galeneo/dates/village-festival-30-septimebre.webp',
+  },
+  {
+    city: 'Medellín, Colombia',
+    place: 'Deep Presenta · Indie Dance',
+    venue: 'Deep Club',
+    date: 'September 13',
+    image: '/galeneo/dates/deep-club-septiembre-13.webp',
+  },
+  {
+    city: 'Medellín, Colombia',
+    place: 'Critical Sounds Showcase',
+    venue: 'Mijitō Rooftop (Academy Studios)',
+    date: 'July 31',
+    image: '/galeneo/dates/critical-sounds-academy-studios-show-case-31-julio.webp',
   },
 ];
 

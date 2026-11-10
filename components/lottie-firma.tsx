@@ -15,13 +15,13 @@ export function LottieFirma() {
       renderer: 'svg',
       loop: false,
       autoplay: true,
-      path: '/multimedia-karther/lootie-firma.json',
+      path: '/galeneo/galeneo-lootie.json',
     });
 
-    // Repetir la animación cada 10 segundos
+    // Repetir la animación cada 8 segundos
     const interval = setInterval(() => {
       anim.goToAndPlay(0, true);
-    }, 10000);
+    }, 8000);
 
     return () => {
       clearInterval(interval);
@@ -30,10 +30,11 @@ export function LottieFirma() {
   }, []);
 
   return (
-    <div className="relative h-12 w-36 sm:h-16 sm:w-48 flex-shrink-0 flex items-center justify-start">
+    <div className="relative w-32 sm:w-40 flex-shrink-0 flex items-center justify-start">
       <div
         ref={containerRef}
-        className="w-full h-full flex items-center justify-start [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full"
+        style={{ aspectRatio: '3112 / 546' }}
+        className="w-full flex items-center justify-start [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full filter invert"
       />
     </div>
   );

@@ -5,7 +5,24 @@ import Image from 'next/image';
 import { Play, Pause } from 'lucide-react';
 import { useAudioPlayer } from '@/context/audio-player-context';
 
-const tracks = [
+interface TrackItem {
+  title: string;
+  artist: string;
+  label: string;
+  date: string;
+  image: string;
+  audioUrl: string;
+  links?: {
+    spotify?: string;
+    apple?: string;
+    beatport?: string;
+    deezer?: string;
+    bandcamp?: string;
+    soundcloud?: string;
+  };
+}
+
+const tracks: TrackItem[] = [
   {
     title: "Enciendelo",
     artist: "Erick Cz, Karther",

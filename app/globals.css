@@ -157,3 +157,40 @@ main {
 .animate-glow-sweep {
   animation: sweep-glow 6s ease-in-out infinite;
 }
+
+@keyframes holo-drift {
+  0% {
+    transform: scale(1.15) translate(-3%, -3%) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.25) translate(3%, 3%) rotate(2deg);
+  }
+  100% {
+    transform: scale(1.15) translate(-3%, -3%) rotate(0deg);
+  }
+}
+
+@keyframes holo-shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-holo-drift {
+  animation: holo-drift 10s ease-in-out infinite alternate;
+}
+
+.animate-holo-shimmer {
+  animation: holo-shimmer 4.5s ease-in-out infinite;
+}

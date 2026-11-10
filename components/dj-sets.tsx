@@ -17,40 +17,37 @@ interface DJSet {
 
 const djSets: DJSet[] = [
   {
-    title: 'KARTHER @ GORDO x Booth & Alib',
-    description: 'Debut set live in Cali alongside Gordo at Centro de Eventos Valle del Pacífico.',
-    duration: '60 min',
-    date: 'October 15, 2023',
-    image: '/multimedia-karther/music/tracks-covers/dj-sets/karther-set-debut-gordo.jpg',
-    url: 'https://soundcloud.com/kartherdj/karther-set-debut-cali-gordo-x-booth-alib-15-10-2023?si=267bc6bcd682401393788e9bc53b667d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-  },
-  {
-    title: 'NebulozzaRadio #026 (Special Guest)',
-    description: 'Special guest session curated for Nebulozza Records Radio Show.',
-    duration: '60 min',
-    date: '2025',
-    image: '/multimedia-karther/music/tracks-covers/dj-sets/karther-nebulosa.png',
-    url: 'https://soundcloud.com/nebulozzarecords/nebulozza-radio-show-025',
-  },
-  {
-    title: 'Epifania Radio Show 02',
-    description: 'Exclusive guest mix for Epifania Radio session.',
-    duration: '60 min',
-    date: '2025',
-    image: '/multimedia-karther/music/tracks-covers/dj-sets/karther-epifania.jpg',
-    url: 'https://www.mixcloud.com/Karther/sesi%C3%B3n-epifania-radio-show/',
-    mixcloudUrl: 'https://www.mixcloud.com/Karther/sesi%C3%B3n-epifania-radio-show/',
-  },
-  {
-    title: 'Future Madness',
-    description: 'Exclusive video performance set for Future Madness channel.',
-    duration: '60 min',
+    title: 'Galeneo @ La Sala Audio Wave',
+    description: 'Exclusive live performance session recorded at La Sala Audio Wave.',
+    duration: 'Live Set',
     date: '2026',
-    image: '/multimedia-karther/music/tracks-covers/dj-sets/karther-future-madness.png',
-    videoUrl: '/multimedia-karther/music/tracks-covers/dj-sets/karther-future-madness.mp4',
-    url: 'https://www.youtube.com/watch?v=c4jtLT_ZuTc',
-    youtubeUrl: 'https://www.youtube.com/watch?v=c4jtLT_ZuTc',
-    isYoutubeOnly: true,
+    image: '/galeneo/dj-sets/galeneo-evoorg-sessions.png',
+    videoUrl: '/galeneo/video-preview.mp4',
+    url: '/galeneo/video-preview.mp4',
+  },
+  {
+    title: 'Para Mi Levanah',
+    description: 'Deep melodic & underground journey curated by Galeneo.',
+    duration: 'DJ Set',
+    date: '2026',
+    image: '/galeneo/dj-sets/galeneo-para-mi-levanah.png',
+    url: 'https://soundcloud.com/galeneo/para-mi-levana',
+  },
+  {
+    title: 'Sunrise Espectacular',
+    description: 'Atmospheric morning session with progressive and driving energy.',
+    duration: 'DJ Set',
+    date: '2026',
+    image: '/galeneo/dj-sets/galeneo-sonrise-espectacular.png',
+    url: 'https://soundcloud.com/galeneo/sunriseespectacular',
+  },
+  {
+    title: 'EVOORG Sessions',
+    description: 'Live studio session performance for EVOORG.',
+    duration: 'DJ Set',
+    date: '2026',
+    image: '/galeneo/dj-sets/galeneo-evoorg-sessions.png',
+    url: 'https://soundcloud.com/galeneo',
   },
 ];
 
@@ -98,10 +95,14 @@ export function DJSets() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-all duration-200 group-hover:opacity-100 hover:bg-black/50"
-                    title="Watch full set on YouTube"
+                    title={set.youtubeUrl ? "Watch full set on YouTube" : "Watch video"}
                   >
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-transform duration-200 group-hover:scale-110">
-                      <Youtube className="h-6 w-6 text-white drop-shadow-md" fill="white" />
+                      {set.youtubeUrl ? (
+                        <Youtube className="h-6 w-6 text-white drop-shadow-md" fill="white" />
+                      ) : (
+                        <PlayCircle className="h-6 w-6 text-white drop-shadow-md" />
+                      )}
                     </div>
                   </Link>
                   <span className="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-black/75 text-accent border border-white/10 pointer-events-none">
@@ -158,7 +159,7 @@ export function DJSets() {
                       )}
 
                       {/* Si tiene SoundCloud */}
-                      {!set.isYoutubeOnly && set.url && !set.url.includes('mixcloud.com') && (
+                      {!set.isYoutubeOnly && set.url && set.url.includes('soundcloud.com') && (
                         <Link
                           href={set.url}
                           target="_blank"

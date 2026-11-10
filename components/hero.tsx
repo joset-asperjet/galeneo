@@ -3,29 +3,24 @@
 import Image from 'next/image';
 import { LottieFirma } from './lottie-firma';
 
-// Fotos reales de /multimedia-karther/hero-photos (1.avif a 15.avif)
+// Fotos reales de /galeneo/fotos-hero (excluyendo hero8)
 const heroPhotos = [
-  { src: '/multimedia-karther/hero-photos/1.avif', alt: 'Hero Photo 1' },
-  { src: '/multimedia-karther/hero-photos/2.avif', alt: 'Hero Photo 2' },
-  { src: '/multimedia-karther/hero-photos/3.avif', alt: 'Hero Photo 3' },
-  { src: '/multimedia-karther/hero-photos/4.avif', alt: 'Hero Photo 4' },
-  { src: '/multimedia-karther/hero-photos/5.avif', alt: 'Hero Photo 5' },
-  { src: '/multimedia-karther/hero-photos/6.avif', alt: 'Hero Photo 6' },
-  { src: '/multimedia-karther/hero-photos/7.avif', alt: 'Hero Photo 7' },
-  { src: '/multimedia-karther/hero-photos/8.avif', alt: 'Hero Photo 8' },
-  { src: '/multimedia-karther/hero-photos/9.avif', alt: 'Hero Photo 9' },
-  { src: '/multimedia-karther/hero-photos/10.avif', alt: 'Hero Photo 10' },
-  { src: '/multimedia-karther/hero-photos/11.avif', alt: 'Hero Photo 11' },
-  { src: '/multimedia-karther/hero-photos/12.avif', alt: 'Hero Photo 12' },
-  { src: '/multimedia-karther/hero-photos/13.avif', alt: 'Hero Photo 13' },
-  { src: '/multimedia-karther/hero-photos/14.avif', alt: 'Hero Photo 14' },
-  { src: '/multimedia-karther/hero-photos/15.avif', alt: 'Hero Photo 15' },
+  { src: '/galeneo/fotos-hero/galeneo-hero1.webp', alt: 'Galeneo Hero 1' },
+  { src: '/galeneo/fotos-hero/galeneo-hero2.webp', alt: 'Galeneo Hero 2' },
+  { src: '/galeneo/fotos-hero/galeneo-hero3.webp', alt: 'Galeneo Hero 3' },
+  { src: '/galeneo/fotos-hero/galeneo-hero4.webp', alt: 'Galeneo Hero 4' },
+  { src: '/galeneo/fotos-hero/galeneo-hero5.webp', alt: 'Galeneo Hero 5' },
+  { src: '/galeneo/fotos-hero/galeneo-hero6.webp', alt: 'Galeneo Hero 6' },
+  { src: '/galeneo/fotos-hero/galeneo-hero7.webp', alt: 'Galeneo Hero 7' },
+  { src: '/galeneo/fotos-hero/galeneo-hero9.webp', alt: 'Galeneo Hero 9' },
+  { src: '/galeneo/fotos-hero/galeneo-hero10.webp', alt: 'Galeneo Hero 10' },
+  { src: '/galeneo/fotos-hero/galeneo-hero11.webp', alt: 'Galeneo Hero 11' },
 ];
 
-const row1 = [heroPhotos[0], heroPhotos[1], heroPhotos[2], heroPhotos[3], heroPhotos[4], heroPhotos[5], heroPhotos[6]];
-const row2 = [heroPhotos[7], heroPhotos[8], heroPhotos[9], heroPhotos[10], heroPhotos[11], heroPhotos[12], heroPhotos[13]];
-const row3 = [heroPhotos[14], heroPhotos[0], heroPhotos[2], heroPhotos[4], heroPhotos[6], heroPhotos[8], heroPhotos[10]];
-const row4 = [heroPhotos[1], heroPhotos[3], heroPhotos[5], heroPhotos[7], heroPhotos[9], heroPhotos[11], heroPhotos[13]];
+const row1 = [heroPhotos[0], heroPhotos[1], heroPhotos[2], heroPhotos[3], heroPhotos[4], heroPhotos[5]];
+const row2 = [heroPhotos[5], heroPhotos[6], heroPhotos[7], heroPhotos[8], heroPhotos[9], heroPhotos[0]];
+const row3 = [heroPhotos[1], heroPhotos[3], heroPhotos[5], heroPhotos[7], heroPhotos[9], heroPhotos[2]];
+const row4 = [heroPhotos[2], heroPhotos[4], heroPhotos[6], heroPhotos[8], heroPhotos[0], heroPhotos[1]];
 
 interface ImageCardProps {
   src: string;
@@ -126,13 +121,13 @@ export function Hero() {
       {/* 2. Espacio negro significativo respetando los márgenes mobile-first (px-4) */}
       <div className="w-full bg-background px-4 pt-6 pb-10">
         <div className="w-full flex items-center justify-between gap-3">
-          {/* Firma Lottie animada con repetición cada 10s */}
+          {/* Lottie Galeneo animado con repetición cada 8s */}
           <LottieFirma />
 
           {/* Textos al lado derecho en dos líneas y un poco más pequeños */}
           <div className="flex flex-col items-end text-right">
             <span className="text-[10px] sm:text-[11px] font-medium tracking-[0.14em] text-white/85 uppercase">
-              Karther - Digital Presskit
+              GALENEO - Digital Presskit
             </span>
             <span className="text-[9px] sm:text-[10px] font-light tracking-[0.18em] text-white/50 uppercase mt-0.5">
               Version 1.0, 2026

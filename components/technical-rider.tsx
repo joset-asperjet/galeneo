@@ -37,11 +37,6 @@ const equipmentSpecs: { label: string; value: string; note?: string }[] = [
     value: 'Dedicated Booth Monitoring',
     note: 'Independent stereo booth monitor system with direct volume control',
   },
-  {
-    label: 'Link',
-    value: 'Active Pro DJ Link',
-    note: 'Full LAN ethernet hub interconnection between all players and mixer',
-  },
 ];
 
 const hospitalityItems = [
@@ -94,9 +89,8 @@ export function TechnicalRider() {
               DJ Booth & Technical Setup
             </h3>
             <ChevronDown
-              className={`h-4 w-4 text-accent transition-transform duration-200 ${
-                isEquipOpen ? 'rotate-180' : ''
-              }`}
+              className={`h-4 w-4 text-accent transition-transform duration-200 ${isEquipOpen ? 'rotate-180' : ''
+                }`}
             />
           </button>
 
@@ -164,17 +158,6 @@ export function TechnicalRider() {
                         {spec.note}
                       </p>
                     )}
-                    {spec.label === 'Link' && (
-                      <div className="mt-3 flex items-center pt-2 border-t border-white/5">
-                        <Image
-                          src="/multimedia-karther/technical-rider/beatport-link-2021.svg"
-                          alt="Beatport LINK"
-                          width={130}
-                          height={28}
-                          className="h-5 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-                        />
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -192,9 +175,8 @@ export function TechnicalRider() {
               Hospitality & Touring Logistics
             </h3>
             <ChevronDown
-              className={`h-4 w-4 text-accent transition-transform duration-200 ${
-                isHospOpen ? 'rotate-180' : ''
-              }`}
+              className={`h-4 w-4 text-accent transition-transform duration-200 ${isHospOpen ? 'rotate-180' : ''
+                }`}
             />
           </button>
 

@@ -23,7 +23,7 @@ export function Biography() {
         {/* Botón de alternancia de idioma */}
         <button
           onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-          className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white transition-all hover:bg-white/10 hover:border-white/30"
+          className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white transition-all hover:bg-white/10 hover:border-white/30 cursor-pointer"
           title="Cambiar idioma / Switch language"
         >
           <span className={lang === 'es' ? 'text-white' : 'text-white/40'}>ES</span>
@@ -39,8 +39,8 @@ export function Biography() {
           <div className="max-w-[85%] text-left">
             <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-foreground leading-[0.98]">
               {lang === 'es'
-                ? 'Karther construye desde la pista.'
-                : 'Karther builds from the dancefloor.'}
+                ? 'DJ y productor colombiano. Marcando tendencia Techno desde 2014.'
+                : 'Colombian DJ & Producer. Shaping Techno since 2014.'}
             </h3>
           </div>
 
@@ -49,8 +49,8 @@ export function Biography() {
             <div className="max-w-[85%] text-right">
               <p className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white/90 leading-[1.05]">
                 {lang === 'es'
-                  ? 'Con grooves percusivos y una marcada estética inspirada en el sonido urbano de los 90s y 00s.'
-                  : 'With percussive grooves and a distinct aesthetic inspired by the urban sound of the 90s and 00s.'}
+                  ? 'Sonidos contundentes con armonías progresivas en tarimas de Aruba, Argentina y España.'
+                  : 'Driving beats with progressive harmonies across stages in Aruba, Argentina, and Spain.'}
               </p>
             </div>
           </div>
@@ -59,12 +59,12 @@ export function Biography() {
         {/* Expanded content with full bio details */}
         {isExpanded ? (
           <div className="mt-8 animate-in fade-in duration-500 space-y-5">
-            {/* Foto sin marco ni bordes redondeados (alineada al milímetro con el texto) */}
+            {/* Foto editorial alineada al texto */}
             <div className="float-right ml-4 mb-3 mt-1.5 w-[120px] sm:w-[160px] md:w-[190px]">
               <div className="relative aspect-[3/4] overflow-hidden shadow-2xl">
                 <Image
-                  src="/multimedia-karther/hero-photos/editorial-photo.avif"
-                  alt="Karther Editorial"
+                  src="/galeneo/fotos-hero/galeneo-hero1.webp"
+                  alt="Galeneo Editorial"
                   fill
                   className="object-cover"
                 />
@@ -75,29 +75,37 @@ export function Biography() {
             {lang === 'es' ? (
               <>
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  KARTHER es un artista en ascenso dentro de la escena electrónica colombiana, con una propuesta sonora marcada por la energía del dancefloor, la cultura underground y una identidad street propia. En 2023, su carrera recibió un impulso importante gracias a su remix de “21 Questions” de 50 Cent, que contribuyó a ampliar su reconocimiento dentro de la escena.
+                  DJ y productor colombiano. Nacido en la ciudad de Medellín, tuvo sus inicios en el año 2014, marcando una tendencia alrededor del Techno, la cual ha evolucionado a través de los años, llevándolo a estar en tarimas a nivel internacional como Aruba, Argentina y España.
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  En 2025, fue nominado en la categoría “Mejor Productor Revelación” de los Premios CDA de Colombia. A lo largo de su trayectoria, KARTHER ha compartido escenario con artistas internacionales como GORDO, Classmatic, Rafa Barrios, WAFF y Sergio Saffe, además de realizar presentaciones B2B junto a Koleto. Su catálogo incluye lanzamientos en sellos como Booth Rec, Harvibal, High Quality, Nuloud, Stiker Music y demás, así como colaboraciones musicales oficiales con artistas como Víctor Vergara.
+                  Se caracteriza por sonidos contundentes, con armonías progresivas que hacen de un ambiente especial para los amantes de la buena música. A nivel nacional ha visitado diversos clubes en las ciudades de Bogotá, Cartagena y Cali, marcando una experiencia sin igual.
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  Sus producciones han recibido el support de referentes de la escena como Harvy Valencia, Tony Guerra, Moreno & Prieto, Oscar G, Koleto, Ramón Bedoya, Sortech y Jonathan Jaramillo. Asimismo, sus tracks han sido descargados por artistas internacionales de la talla de Marco Carola, Paco Osuna, Cloonee, Fisher y GORDO, retumbando en la reconocida fiesta global Taraka y en clubes insignia a nivel mundial como Club Space (Miami) y Lost Beach Club (Ecuador). De esta forma, su música continúa ampliando su alcance y conectando con circuitos de países como España, México, Argentina, Chile, Ecuador, Venezuela y Colombia.
+                  Director del programa de música electrónica Feeling 1 y actualmente uno de los presentadores del programa Drop TV, conectado desde España. Ha tenido interacción con DJs internacionales por medio de programas como Drop TV y Feeling, y en ocasiones con artistas como Fernanda Martins, Lexlay, Anna Tur, The YellowHeads, Cristian Varela, entre otros.
+                </p>
+
+                <p className="text-sm leading-relaxed text-white/90 text-justify">
+                  Actualmente se desempeña como profesor de la Academia enfocándose en el área mezcla para los cursos Social DJ y Club DJ.
                 </p>
               </>
             ) : (
               <>
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  KARTHER is a rising artist within the Colombian electronic music scene, defined by a sonic identity rooted in dancefloor energy, underground culture, and an authentic street aesthetic. In 2023, his career gained significant momentum thanks to his remix of 50 Cent’s “21 Questions”, which played a key role in expanding his recognition across the scene.
+                  Colombian DJ and producer. Born in Medellín, he began his musical journey in 2014, shaping a distinct trend within Techno that has evolved over the years, leading him to international stages in Aruba, Argentina, and Spain.
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  In 2025, he was nominated for “Best Breakthrough Producer” at the CDA Awards in Colombia. Throughout his career, KARTHER has shared stages with international heavyweights such as GORDO, Classmatic, Rafa Barrios, WAFF, and Sergio Saffe, in addition to delivering memorable B2B performances alongside Koleto. His discography spans releases on respected labels including Booth Rec, Harvibal, High Quality, Nuloud, Stiker Music, and more, as well as official collaborations with artists like Víctor Vergara.
+                  Characterized by driving, powerful beats with progressive harmonies, his sound creates a captivating atmosphere for electronic music aficionados. Nationally, he has performed across premier clubs in Bogotá, Cartagena, and Cali, delivering unforgettable dancefloor experiences.
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/90 text-justify">
-                  His productions have received continuous support from leading scene figures such as Harvy Valencia, Tony Guerra, Moreno & Prieto, Oscar G, Koleto, Ramón Bedoya, Sortech, and Jonathan Jaramillo. His tracks have also been downloaded and championed by global icons including Marco Carola, Paco Osuna, Cloonee, Fisher, and GORDO, reverberating at premier global parties like Taraka and landmark venues worldwide such as Club Space (Miami) and Lost Beach Club (Ecuador). As a result, his music continues to expand its reach, connecting with audiences across Spain, Mexico, Argentina, Chile, Ecuador, Venezuela, and Colombia.
+                  Director of the electronic music show Feeling 1 and currently one of the hosts of Drop TV, broadcasting from Spain. Through these platforms, he has engaged with renowned international DJs and shared moments with artists such as Fernanda Martins, Lexlay, Anna Tur, The YellowHeads, Cristian Varela, among others.
+                </p>
+
+                <p className="text-sm leading-relaxed text-white/90 text-justify">
+                  He currently serves as an academy instructor, specializing in music mixing for both Social DJ and Club DJ courses.
                 </p>
               </>
             )}
@@ -105,18 +113,18 @@ export function Biography() {
             <div className="pt-2 clear-both">
               <button
                 onClick={() => setIsExpanded(false)}
-                className="text-[10px] font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+                className="text-[10px] font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 — {lang === 'es' ? 'Ver Menos' : 'Show Less'}
               </button>
             </div>
           </div>
         ) : (
-          /* Read More Button centrado sin líneas laterales */
+          /* Read More Button centrado */
           <div className="mt-8 flex justify-center">
             <button
               onClick={() => setIsExpanded(true)}
-              className="rounded-full border border-border px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-foreground transition-all duration-200 hover:bg-muted hover:border-accent whitespace-nowrap"
+              className="rounded-full border border-border px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-foreground transition-all duration-200 hover:bg-muted hover:border-accent whitespace-nowrap cursor-pointer"
             >
               {lang === 'es' ? 'Ver Más' : 'Read Full Bio'}
             </button>

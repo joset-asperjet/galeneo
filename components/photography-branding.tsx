@@ -2,134 +2,62 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Camera, AlertCircle, X, Download, ChevronDown, Video } from 'lucide-react';
+import { Camera, AlertCircle, X, Download, ChevronDown, ArrowUpRight } from 'lucide-react';
 
 interface GalleryItem {
     src: string;
     downloadUrl?: string;
     label: string;
-    isVideo?: boolean;
 }
+
+const GOOGLE_DRIVE_PHOTOS_URL = "https://drive.google.com/drive/folders/1S9yY2jmZyMlnx0PgYtrb75Q_jsA8-Zab";
+const GOOGLE_DRIVE_LOGOS_URL = "https://drive.google.com/drive/folders/1nEb7pihQ4JPhh95XtOj2msGMbX5x_Ic9";
+const GOOGLE_DRIVE_BRAND_MANUAL_URL = "https://drive.google.com/drive/folders/1ZHULriGsPIEHsfIZr8gJ7Zz602WCCRrz";
+const GOOGLE_DRIVE_FONTS_URL = "https://drive.google.com/drive/folders/1B0wMiMV3E5fAOTKS-vIpSNEoAwtz_F0a";
 
 const mainPressGallery: GalleryItem[] = [
     {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-01lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-01hq.jpg",
+        src: "/galeneo/brand-foto/galeneo1.webp",
+        downloadUrl: GOOGLE_DRIVE_PHOTOS_URL,
         label: "Editorial Photo 01",
     },
     {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-02lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-02hq.jpg",
+        src: "/galeneo/brand-foto/galeneo2.webp",
+        downloadUrl: GOOGLE_DRIVE_PHOTOS_URL,
         label: "Editorial Photo 02",
     },
     {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-03lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-03hq.jpg",
+        src: "/galeneo/brand-foto/galeneo3.webp",
+        downloadUrl: GOOGLE_DRIVE_PHOTOS_URL,
         label: "Editorial Photo 03",
     },
     {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-04lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-04hq.jpg",
+        src: "/galeneo/brand-foto/galeneo4.webp",
+        downloadUrl: GOOGLE_DRIVE_PHOTOS_URL,
         label: "Editorial Photo 04",
-    },
-    {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-05lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-05hq.jpg",
-        label: "Editorial Photo 05",
-    },
-    {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-07lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-07hq.jpg",
-        label: "Editorial Photo 07",
-    },
-    {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-08lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-08hq.jpg",
-        label: "Editorial Photo 08",
-    },
-    {
-        src: "/multimedia-karther/photos/editorial/karther-presskit-photo-09lq.webp",
-        downloadUrl: "/multimedia-karther/photos/editorial/karther-presskit-photo-09hq.jpg",
-        label: "Editorial Photo 09",
-    },
-];
-
-const bwGallery: GalleryItem[] = [
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-02lq.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-02hq.jpg",
-        label: "Performance Photo 01",
-    },
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-03lq.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-03hq.PNG",
-        label: "Performance Photo 02",
-    },
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-04lq.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-04hq.PNG",
-        label: "Performance Photo 03",
-    },
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-05lq.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-05hq.PNG",
-        label: "Performance Photo 04",
-    },
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-06lq.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-performance-06hq.PNG",
-        label: "Performance Photo 05",
-    },
-    {
-        src: "/multimedia-karther/photos/performance/karther-presskit-photo-lq10.webp",
-        downloadUrl: "/multimedia-karther/photos/performance/karther-presskit-photo-10hq.png",
-        label: "Performance Photo 06",
     },
 ];
 
 const brandingGallery: GalleryItem[] = [
     {
-        src: "/multimedia-karther/logo/logo-karther-white-letters.png",
-        downloadUrl: "/multimedia-karther/logo/logo-karther-white-letters.png",
-        label: "Karther Logo White",
+        src: "/galeneo/brand-foto/logos-and-branding/galeneo-logo.png",
+        downloadUrl: GOOGLE_DRIVE_LOGOS_URL,
+        label: "Galeneo Logo White",
     },
     {
-        src: "/multimedia-karther/logo/logo-karther-black-letters.png",
-        downloadUrl: "/multimedia-karther/logo/logo-karther-black-letters.png",
-        label: "Karther Logo Black",
+        src: "/galeneo/brand-foto/logos-and-branding/galeneo-logo-black.png",
+        downloadUrl: GOOGLE_DRIVE_LOGOS_URL,
+        label: "Galeneo Logo Black",
     },
     {
-        src: "/multimedia-karther/logo/logo-booth.png",
-        downloadUrl: "/multimedia-karther/logo/logo-booth.png",
-        label: "Booth Agency Logo",
+        src: "/galeneo/brand-foto/logos-and-branding/galeneo-logo-animated.gif",
+        downloadUrl: GOOGLE_DRIVE_LOGOS_URL,
+        label: "Galeneo Animated Logo",
     },
     {
-        src: "/multimedia-karther/logo/logo-dance-different.png",
-        downloadUrl: "/multimedia-karther/logo/logo-dance-different.png",
-        label: "Dance Different Logo",
-    },
-];
-
-const GOOGLE_DRIVE_VIDEOS_URL = "https://drive.google.com/drive/folders/1gbgBdXJ6LXq_PWTJ9vumtsU4RF38zybJ";
-
-const videoGallery: GalleryItem[] = [
-    {
-        src: "/multimedia-karther/photos/videos/karther-dj-presskit-video01hq.MP4",
-        downloadUrl: GOOGLE_DRIVE_VIDEOS_URL,
-        label: "Press Video 01",
-        isVideo: true,
-    },
-    {
-        src: "/multimedia-karther/photos/videos/karther-dj-presskit-video02lq.mp4",
-        downloadUrl: GOOGLE_DRIVE_VIDEOS_URL,
-        label: "Press Video 02",
-        isVideo: true,
-    },
-    {
-        src: "/multimedia-karther/photos/videos/karther-dj-presskit-video03lq.mp4",
-        downloadUrl: GOOGLE_DRIVE_VIDEOS_URL,
-        label: "Press Video 03",
-        isVideo: true,
+        src: "/galeneo/brand-foto/logos-and-branding/critical-sounds-logo.png",
+        downloadUrl: GOOGLE_DRIVE_LOGOS_URL,
+        label: "Critical Sounds Logo",
     },
 ];
 
@@ -140,41 +68,25 @@ const assets = [
         label: "Editorial Photos",
         isGallery: true,
         galleryType: 'main' as const,
-    },
-    {
-        src: bwGallery[0].src,
-        alt: "Artist Portrait (Performance)",
-        label: "Performance Photos",
-        isGallery: true,
-        galleryType: 'bw' as const,
+        isLogo: false,
     },
     {
         src: brandingGallery[0].src,
-        alt: "Karther & Agency Logos",
+        alt: "Galeneo & Agency Logos",
         label: "Logos & Branding",
         isGallery: true,
         galleryType: 'branding' as const,
         isLogo: true,
     },
-    {
-        src: videoGallery[0].src,
-        alt: "Karther Live Videos",
-        label: "Videos",
-        isGallery: true,
-        galleryType: 'videos' as const,
-        isVideo: true,
-    },
 ];
 
 export function PhotographyBranding() {
-    const [activeGallery, setActiveGallery] = useState<'main' | 'bw' | 'branding' | 'videos' | null>(null);
+    const [activeGallery, setActiveGallery] = useState<'main' | 'branding' | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const galleries = {
         main: mainPressGallery,
-        bw: bwGallery,
         branding: brandingGallery,
-        videos: videoGallery,
     };
 
     const currentGallery = activeGallery ? galleries[activeGallery] : [];
@@ -200,7 +112,7 @@ export function PhotographyBranding() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6">
                 {assets.map((asset, idx) => (
                     <div key={idx} className="group relative flex flex-col gap-2">
                         {asset.isGallery ? (
@@ -213,66 +125,37 @@ export function PhotographyBranding() {
                             >
                                 {galleries[asset.galleryType as keyof typeof galleries].length > 2 && (
                                     <div className={`absolute inset-0 translate-x-3 -translate-y-3 overflow-hidden rounded border border-border bg-card transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4 ${asset.isLogo ? 'bg-white/5' : ''}`}>
-                                        {asset.isVideo ? (
-                                            <div className="h-full w-full bg-black/60 flex items-center justify-center opacity-40">
-                                                <Video className="h-8 w-8 text-white/40" />
-                                            </div>
-                                        ) : (
-                                            <Image
-                                                src={galleries[asset.galleryType as keyof typeof galleries][2].src}
-                                                alt="Stack Background"
-                                                fill
-                                                className={`opacity-40 ${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
-                                            />
-                                        )}
+                                        <Image
+                                            src={galleries[asset.galleryType as keyof typeof galleries][2].src}
+                                            alt="Stack Background"
+                                            fill
+                                            className={`opacity-40 ${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
+                                        />
                                     </div>
                                 )}
                                 {galleries[asset.galleryType as keyof typeof galleries].length > 1 && (
                                     <div className={`absolute inset-0 translate-x-1.5 -translate-y-1.5 overflow-hidden rounded border border-border bg-card transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-2 ${asset.isLogo ? 'bg-white/5' : ''}`}>
-                                        {asset.isVideo ? (
-                                            <div className="h-full w-full bg-black/50 flex items-center justify-center opacity-60">
-                                                <Video className="h-8 w-8 text-white/50" />
-                                            </div>
-                                        ) : (
-                                            <Image
-                                                src={galleries[asset.galleryType as keyof typeof galleries][1].src}
-                                                alt="Stack Background"
-                                                fill
-                                                className={`opacity-60 ${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
-                                            />
-                                        )}
+                                        <Image
+                                            src={galleries[asset.galleryType as keyof typeof galleries][1].src}
+                                            alt="Stack Background"
+                                            fill
+                                            className={`opacity-60 ${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
+                                        />
                                     </div>
                                 )}
 
                                 <div className={`relative h-full w-full overflow-hidden rounded border border-border bg-card transition-all duration-300 group-hover:border-accent shadow-xl ${asset.isLogo ? 'bg-white/5' : ''}`}>
-                                    {asset.isVideo ? (
-                                        <div className="relative h-full w-full bg-black">
-                                            <video
-                                                src={asset.src}
-                                                muted
-                                                playsInline
-                                                loop
-                                                autoPlay
-                                                className="h-full w-full object-cover"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <Image
-                                            src={asset.src}
-                                            alt={asset.alt}
-                                            fill
-                                            className={`${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
-                                        />
-                                    )}
+                                    <Image
+                                        src={asset.src}
+                                        alt={asset.alt}
+                                        fill
+                                        className={`${asset.isLogo ? 'object-contain p-4' : 'object-cover'}`}
+                                    />
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                         <div className="flex flex-col items-center gap-2">
-                                            {asset.isVideo ? (
-                                                <Video className="h-6 w-6 text-white" />
-                                            ) : (
-                                                <Camera className="h-6 w-6 text-white" />
-                                            )}
+                                            <Camera className="h-6 w-6 text-white" />
                                             <span className="text-[8px] font-bold uppercase tracking-tighter text-white">
-                                                {asset.isVideo ? 'Watch Videos' : 'View Gallery'}
+                                                {asset.isLogo ? 'View Logos' : 'View Gallery'}
                                             </span>
                                         </div>
                                     </div>
@@ -300,11 +183,63 @@ export function PhotographyBranding() {
                                 </div>
                             </a>
                         )}
-                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-accent">
-                            {asset.label}
-                        </p>
+                        <div className="flex items-center justify-between">
+                            <p className="text-[10px] uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-accent">
+                                {asset.label}
+                            </p>
+                            {asset.galleryType === 'branding' && (
+                                <a
+                                    href={GOOGLE_DRIVE_LOGOS_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Open Logos Drive"
+                                    className="text-[9px] uppercase tracking-wider text-muted-foreground/80 hover:text-accent flex items-center gap-1 transition-colors"
+                                >
+                                    <span>Drive</span>
+                                    <ArrowUpRight className="h-3 w-3" />
+                                </a>
+                            )}
+                        </div>
                     </div>
                 ))}
+
+                {/* Horizontal CTAs for Brand Manual & Fonts */}
+                <div className="col-span-2 grid grid-cols-2 gap-3 pt-2">
+                    <a
+                        href={GOOGLE_DRIVE_BRAND_MANUAL_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between rounded-lg border border-border bg-card/60 p-3.5 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:bg-accent/10 active:scale-[0.98]"
+                    >
+                        <div className="flex flex-col gap-0.5">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-foreground transition-colors group-hover:text-accent">
+                                View Brand Manual
+                            </span>
+                            <span className="text-[8px] uppercase tracking-widest text-muted-foreground">
+                                Google Drive
+                            </span>
+                        </div>
+                        <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
+                    </a>
+
+                    <a
+                        href={GOOGLE_DRIVE_FONTS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between rounded-lg border border-border bg-card/60 p-3.5 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:bg-accent/10 active:scale-[0.98]"
+                    >
+                        <div className="flex flex-col gap-0.5">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-foreground transition-colors group-hover:text-accent">
+                                View Fonts
+                            </span>
+                            <span className="text-[8px] uppercase tracking-widest text-muted-foreground">
+                                Google Drive
+                            </span>
+                        </div>
+                        <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
+                    </a>
+                </div>
             </div>
 
             {/* Gallery Lightbox Slider */}
@@ -319,22 +254,20 @@ export function PhotographyBranding() {
                             <X className="h-6 w-6 text-foreground" />
                         </button>
 
-                        {/* Title & Download for active image/video */}
+                        {/* Title & Download for active image */}
                         <div className="z-10 flex w-full items-center justify-between md:mb-4">
                             <div>
                                 <h3 className="text-xs font-bold uppercase tracking-widest text-foreground">
-                                    {activeGallery === 'bw' ? 'LIVE ' : activeGallery === 'branding' ? 'BRANDING ' : activeGallery === 'videos' ? 'VIDEO ' : ''}
-                                    {currentGallery[currentIndex].label}
+                                    {activeGallery === 'branding' ? 'BRANDING ' : 'EDITORIAL '}
+                                    {currentGallery[currentIndex]?.label}
                                 </h3>
                                 <p className="text-[10px] text-muted-foreground uppercase mt-1 tracking-tighter">
                                     {activeGallery === 'branding'
                                         ? 'Logo & Brand Assets 2026'
-                                        : activeGallery === 'videos'
-                                            ? 'Video Reel Collection 2026'
-                                            : 'Photography Collection 2026'}
+                                        : 'Photography Collection 2026'}
                                 </p>
                             </div>
-                            {currentGallery[currentIndex].downloadUrl?.startsWith('http') ? (
+                            {currentGallery[currentIndex]?.downloadUrl?.startsWith('http') ? (
                                 <a
                                     href={currentGallery[currentIndex].downloadUrl}
                                     target="_blank"
@@ -346,7 +279,7 @@ export function PhotographyBranding() {
                                 </a>
                             ) : (
                                 <a
-                                    href={`${currentGallery[currentIndex].downloadUrl || currentGallery[currentIndex].src}`}
+                                    href={`${currentGallery[currentIndex]?.downloadUrl || currentGallery[currentIndex]?.src}`}
                                     download
                                     className="flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest text-background transition-all hover:scale-105 active:scale-95 shadow-lg shadow-accent/20"
                                 >
@@ -373,21 +306,28 @@ export function PhotographyBranding() {
                                 <ChevronDown className="h-6 w-6 -rotate-90 text-foreground" />
                             </button>
 
-                            {/* Main Asset (Image or Video) */}
+                            {/* Main Asset (Image) */}
                             <div className="relative h-full w-full max-w-3xl flex items-center justify-center animate-in zoom-in-95 duration-500">
-                                {currentGallery[currentIndex].isVideo ? (
-                                    <video
-                                        key={currentGallery[currentIndex].src}
-                                        src={currentGallery[currentIndex].src}
-                                        controls
-                                        autoPlay
-                                        playsInline
-                                        className="max-h-[75vh] w-auto max-w-full rounded-lg shadow-2xl object-contain bg-black"
-                                    />
+                                {currentGallery[currentIndex]?.downloadUrl ? (
+                                    <a
+                                        href={currentGallery[currentIndex].downloadUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Open in Google Drive"
+                                        className="relative h-full w-full flex items-center justify-center cursor-pointer group/zoom"
+                                    >
+                                        <Image
+                                            src={currentGallery[currentIndex].src}
+                                            alt={currentGallery[currentIndex].label}
+                                            fill
+                                            className={`${activeGallery === 'branding' ? 'object-contain p-12' : 'object-contain'} select-none transition-transform duration-300 group-hover/zoom:scale-105`}
+                                            priority
+                                        />
+                                    </a>
                                 ) : (
                                     <Image
-                                        src={currentGallery[currentIndex].src}
-                                        alt={currentGallery[currentIndex].label}
+                                        src={currentGallery[currentIndex]?.src}
+                                        alt={currentGallery[currentIndex]?.label}
                                         fill
                                         className={`${activeGallery === 'branding' ? 'object-contain p-12' : 'object-contain'} select-none`}
                                         priority
@@ -404,24 +344,12 @@ export function PhotographyBranding() {
                                     onClick={() => setCurrentIndex(idx)}
                                     className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded border-2 transition-all duration-300 ${currentIndex === idx ? 'border-accent scale-110 shadow-lg shadow-accent/20' : 'border-white/10 opacity-50 hover:opacity-100'}`}
                                 >
-                                    {item.isVideo ? (
-                                        <div className="relative h-full w-full bg-black flex items-center justify-center">
-                                            <video
-                                                src={item.src}
-                                                muted
-                                                playsInline
-                                                className="h-full w-full object-cover opacity-60"
-                                            />
-                                            <Video className="absolute h-4 w-4 text-white" />
-                                        </div>
-                                    ) : (
-                                        <Image
-                                            src={item.src}
-                                            alt={item.label}
-                                            fill
-                                            className={`${activeGallery === 'branding' ? 'object-contain p-2' : 'object-cover'}`}
-                                        />
-                                    )}
+                                    <Image
+                                        src={item.src}
+                                        alt={item.label}
+                                        fill
+                                        className={`${activeGallery === 'branding' ? 'object-contain p-2' : 'object-cover'}`}
+                                    />
                                 </button>
                             ))}
                         </div>
@@ -437,10 +365,7 @@ export function PhotographyBranding() {
                     </p>
                     <div className="mt-2 flex flex-col gap-1 border-t border-accent/10 pt-2">
                         <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 flex items-center gap-1.5">
-                            <span className="text-[10px]">©</span> Booth Logotype by Booth
-                        </p>
-                        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 flex items-center gap-1.5">
-                            <span className="text-[10px]">©</span> #DanceDifferent Design by Booth
+                            <span className="text-[10px]">©</span> Galeneo Logotype & Brand Identity
                         </p>
                     </div>
                 </div>

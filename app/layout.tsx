@@ -15,15 +15,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://karthermusic.info"),
-  title: "KARTHER | Digital Presskit 2026",
-  description: "KARTHER es un artista en ascenso dentro de la escena electrónica colombiana, con una propuesta sonora marcada por la energía del dancefloor, la cultura underground y una identidad street propia.",
+  title: "GALENEO | Digital Presskit 2026",
+  description: "DJ y productor colombiano nacido en Medellín. Marcando tendencia en el Techno desde 2014 con sonidos contundentes y armonías progresivas que lo han llevado a escenarios internacionales en Aruba, Argentina y España.",
   openGraph: {
     type: "website",
-    url: "https://karthermusic.info/",
-    title: "KARTHER | Digital Presskit 2026",
-    description: "KARTHER es un artista en ascenso dentro de la escena electrónica colombiana, con una propuesta sonora marcada por la energía del dancefloor, la cultura underground y una identidad street propia.",
-    images: ["/opengraph.jpg"],
+    title: "GALENEO | Digital Presskit 2026",
+    description: "DJ y productor colombiano nacido en Medellín. Marcando tendencia en el Techno desde 2014 con sonidos contundentes y armonías progresivas que lo han llevado a escenarios internacionales en Aruba, Argentina y España.",
+    images: [
+      {
+        url: "/galeneo/open-graph-galeneo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GALENEO - Digital Presskit",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GALENEO | Digital Presskit 2026",
+    description: "DJ y productor colombiano nacido en Medellín. Marcando tendencia en el Techno desde 2014 con sonidos contundentes y armonías progresivas que lo han llevado a escenarios internacionales en Aruba, Argentina y España.",
+    images: ["/galeneo/open-graph-galeneo.jpg"],
   },
   icons: {
     icon: "/icon.svg",
